@@ -1,7 +1,7 @@
 # Presiquisites:
 Make sure you have the following tools installed:
  - VSCode for development.
- - UnityHub to build and run the unity game.
+ - UnityHub to build and run the unity game.(version 2022.3.18f1 of unityEditor)
 
 # Running the Application:
 1. Clone the repo.
