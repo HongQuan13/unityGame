@@ -6,7 +6,7 @@ Make sure you have the following tools installed:
 # Running the Application:
 1. Clone the repo.
 ```
-git clone https://github.com/pvhuwung/smart_app
+git clone https://github.com/HongQuan13/unityGame.git
 ```
 2. Open UnityHub, click add from Disk and choose the folder you just git clone:
 ![image](https://github.com/HongQuan13/unityGame/assets/111102453/a56d0418-4797-4f65-aaae-707869575e41)
