@@ -12,14 +12,12 @@ public class SceneLoader : MonoBehaviour
     // }
     public void LoadSceneByName( string sceneName)
     {
-        Debug.Log("Clicked");
         SceneManager.LoadScene(sceneName);
     }
 
     // // Update is called once per frame
     public void LoadNextBuild()
     {
-        Debug.Log("Clicked");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
     }
 }
