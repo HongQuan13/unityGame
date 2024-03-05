@@ -21,6 +21,7 @@ public class FaceDetector : MonoBehaviour
         WebCamDevice[] devices = WebCamTexture.devices;
         if (devices.Length > 0)
         {
+            Debug.Log(devices);
             for (int i = 0; i < devices.Length; i++) {
                 Debug.Log(devices[i].name + " , " + i.ToString());
             }
@@ -28,7 +29,7 @@ public class FaceDetector : MonoBehaviour
             _webCamTexture.requestedWidth = 640;
             _webCamTexture.requestedHeight = 480;
             _webCamTexture.Play();
-            cascade = new CascadeClassifier(Application.dataPath + @"/haarcascade_frontalface_default.xml");
+            cascade = new CascadeClassifier(Application.dataPath + @"/Scripts/haarcascade_frontalface_default.xml");
         } else {
             Debug.LogError("No Webcam found");
         }
@@ -71,8 +72,7 @@ public class FaceDetector : MonoBehaviour
                 MyFace.X = (int)facePosition.x - MyFace.Width / 2;
                 MyFace.Y = (int)(facePosition.y - MyFace.Height* 0.06f / 2 );
                 faceY = MyFace.Y - 9;
-
-
+                Debug.Log(faceY);
             }
         }
     }
