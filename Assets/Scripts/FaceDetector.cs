@@ -21,7 +21,6 @@ public class FaceDetector : MonoBehaviour
         WebCamDevice[] devices = WebCamTexture.devices;
         if (devices.Length > 0)
         {
-            Debug.Log(devices);
             for (int i = 0; i < devices.Length; i++) {
                 Debug.Log(devices[i].name + " , " + i.ToString());
             }
@@ -72,7 +71,6 @@ public class FaceDetector : MonoBehaviour
                 MyFace.X = (int)facePosition.x - MyFace.Width / 2;
                 MyFace.Y = (int)(facePosition.y - MyFace.Height* 0.06f / 2 );
                 faceY = MyFace.Y - 9;
-                Debug.Log(faceY);
             }
         }
     }
