@@ -39,8 +39,16 @@ public class PipeSpawnScript : MonoBehaviour
  
         Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
     }
-     public void StartSpawning()
+    public void StartSpawning()
     {
         isSpawning = true;
+        Time.timeScale = 1; // Resume time
+    }
+
+    // Updated function to pause game
+    public void StopSpawning()
+    {
+        isSpawning = false;
+        Time.timeScale = 0; // Pause time
     }
 }
