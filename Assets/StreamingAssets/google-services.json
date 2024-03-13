@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "91246555332",
+    "project_id": "unitygame-6e848",
+    "storage_bucket": "unitygame-6e848.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91246555332:android:3f348eb0c724a8ba099991",
+        "android_client_info": {
+          "package_name": "com.DIP.unityGame"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd6ubRJq7CGpQkbLX649wUOESQBh6y_us"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Pages/First_page.unity
     guid: b831efb7abc2b44e48db15ad45ee1773
   - enabled: 1
-    path: Assets/Scenes/Pages/login.unity
+    path: Assets/Scenes/Pages/registerPage.unity
     guid: 06f9e9b3b6e7e4a89af50d14392f9fd4
   - enabled: 1
     path: Assets/Scenes/Pages/mainPage.unity
