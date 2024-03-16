@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/FlappyBird.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Pages/genderInfo.unity
+    guid: 7ee051423195a3141a88ba4c5753d36d
+  - enabled: 1
+    path: Assets/Scenes/Pages/heightWeightInfo.unity
+    guid: c9705256a00d41b4c966f421297d8b74
+  - enabled: 1
+    path: Assets/Scenes/Pages/goalInfo.unity
+    guid: b059a37bb67b1a54d9667953f06032df
   m_configObjects: {}
