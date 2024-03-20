@@ -32,7 +32,7 @@ public class LogicScript : MonoBehaviour
     public void startGame()
     {
         gameStart.SetActive(false);
-        stopScreen.SetActive(true); 
+        // stopScreen.SetActive(true); 
         // Invoke(nameof(StartSpawning), 5f);
         StartCoroutine(Countdown());
     }
