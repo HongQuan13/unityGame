@@ -8,24 +8,26 @@ public class PipeSpawnScript : MonoBehaviour
     public float spawnRate = 2;
     private float timer = 0;
     public float heightOffset = 5;
+    private bool isSpawning = false;
  
-    // Start is called before the first frame update
     void Start()
     {
-        spawnPipe();
+        // spawnPipe();
     }
  
-    // Update is called once per frame
     void Update()
     {
-        if (timer < spawnRate)
+       if (isSpawning) //Check the flag before spawning
         {
-            timer = timer + Time.deltaTime;
-        }
-        else
-        {
-            spawnPipe();
-            timer = 0;
+            if (timer < spawnRate)
+            {
+                timer += Time.deltaTime;
+            }
+            else
+            {
+                spawnPipe();
+                timer = 0;
+            }
         }
  
     }
@@ -36,5 +38,17 @@ public class PipeSpawnScript : MonoBehaviour
         float highestPoint = transform.position.y + heightOffset;
  
         Instantiate(pipe, new Vector3(transform.position.x, Random.Range(lowestPoint, highestPoint), 0), transform.rotation);
+    }
+    public void StartSpawning()
+    {
+        isSpawning = true;
+        Time.timeScale = 1; // Resume time
+    }
+
+    // Updated function to pause game
+    public void StopSpawning()
+    {
+        isSpawning = false;
+        Time.timeScale = 0; // Pause time
     }
 }
