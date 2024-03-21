@@ -88,15 +88,18 @@ public class SceneLoader : MonoBehaviour
             if (foundToday)
             {
                 // Future days after today
-                SetTransparency(day.Value.option, transparentAlpha);
-                // day.Value.option.SetActive(false);
-                day.Value.table.SetActive(false);
-                day.Value.total.SetActive(false);
+                  if (day.Value.option.gameObject.GetComponent<Button>() != null)
+                    {
+                        day.Value.option.gameObject.GetComponent<Button>().interactable = false; // Disable button if it exists
+                    }
+                    day.Value.option.gameObject.SetActive(false); // Make the option invisible and non-interactive
+                    day.Value.table.SetActive(false); // Also disable related tables
+                    day.Value.total.SetActive(false); // And totals
             }
             else
             {
                 // Past days before today
-                SetTransparency(day.Value.option, transparentAlpha); // Past days are transparent but not disabled
+                SetTransparency(day.Value.option, transparentAlpha); 
             }
         }
     }
