@@ -1,201 +1,66 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // Include the UI namespace
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    public Image maleOption; // Assign through the inspector
-    public Image femaleOption; // Assign through the inspector
-    public Image burnFatOption;
-    public Image fitterOption;
-    public Image massOption;
-    public Image monOption;
-    public Image tueOption;
-    public Image wedOption;
-    public Image thuOption;
-    public Image friOption;
-    public Image satOption;
-    public Image sunOption;
-    public GameObject monTable;
-    public GameObject tueTable;
-    public GameObject wedTable;
-    public GameObject thuTable;
-    public GameObject friTable;
-    public GameObject satTable;
-    public GameObject sunTable;
-    private float transparentAlpha = 0.1f; // 80% transparent
-    private float opaqueAlpha = 0.7f; // 100% opaque
+    [SerializeField] private Image maleOption, femaleOption, burnFatOption, fitterOption, massOption;
+    [SerializeField] private Image monOption, tueOption, wedOption, thuOption, friOption, satOption, sunOption;
+    [SerializeField] private GameObject monTable, tueTable, wedTable, thuTable, friTable, satTable, sunTable;
+    [SerializeField] private GameObject monTotal, tueTotal, wedTotal, thuTotal, friTotal, satTotal, sunTotal;
 
-    public void LoadSceneByName(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName);
-    }
+    private Dictionary<string, (Image option, GameObject table, GameObject total)> optionsMapping;
 
-    public void LoadNextBuild()
+    private float transparentAlpha = 0.1f;
+    private float opaqueAlpha = 0.7f;
+
+    private void Awake()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // Initialize the mapping
+        optionsMapping = new Dictionary<string, (Image, GameObject, GameObject)>
+        {
+            {"Mon", (monOption, monTable, monTotal)},
+            {"Tue", (tueOption, tueTable, tueTotal)},
+            {"Wed", (wedOption, wedTable, wedTotal)},
+            {"Thu", (thuOption, thuTable, thuTotal)},
+            {"Fri", (friOption, friTable, friTotal)},
+            {"Sat", (satOption, satTable, satTotal)},
+            {"Sun", (sunOption, sunTable, sunTotal)}
+        };
+
+        DisableFutureDays();
     }
 
-    // Call this when the male option is clicked
-    public void OnMaleClicked()
+    public void LoadSceneByName(string sceneName) => SceneManager.LoadScene(sceneName);
+
+    public void LoadNextBuild() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+    public void OnGenderOptionClicked(Image selectedOption)
     {
-        SetTransparency(maleOption, opaqueAlpha);
-        SetTransparency(femaleOption, transparentAlpha);
+        SetTransparency(maleOption, selectedOption == maleOption ? opaqueAlpha : transparentAlpha);
+        SetTransparency(femaleOption, selectedOption == femaleOption ? opaqueAlpha : transparentAlpha);
     }
 
-    // Call this when the female option is clicked
-    public void OnFemaleClicked()
+    public void OnGoalOptionClicked(Image selectedOption)
     {
-        SetTransparency(femaleOption, opaqueAlpha);
-        SetTransparency(maleOption, transparentAlpha);
+        SetTransparency(burnFatOption, selectedOption == burnFatOption ? opaqueAlpha : transparentAlpha);
+        SetTransparency(fitterOption, selectedOption == fitterOption ? opaqueAlpha : transparentAlpha);
+        SetTransparency(massOption, selectedOption == massOption ? opaqueAlpha : transparentAlpha);
     }
 
-     public void OnBurnFatClicked()
+    public void OnDayOptionClicked(string day)
     {
-        SetTransparency(burnFatOption, opaqueAlpha);
-        SetTransparency(fitterOption, transparentAlpha);
-        SetTransparency(massOption, transparentAlpha);
-
+        foreach (var entry in optionsMapping)
+        {
+            bool isSelected = entry.Key == day;
+            SetTransparency(entry.Value.option, isSelected ? opaqueAlpha : transparentAlpha);
+            entry.Value.table.SetActive(isSelected);
+            entry.Value.total.SetActive(isSelected);
+        }
     }
 
-    // Call this when the female option is clicked
-    public void OnFitterClicked()
-    {
-        SetTransparency(burnFatOption, transparentAlpha);
-        SetTransparency(fitterOption, opaqueAlpha);
-        SetTransparency(massOption, transparentAlpha);
-    }
-    public void OnMassClicked()
-    {
-        SetTransparency(burnFatOption, transparentAlpha);
-        SetTransparency(fitterOption, transparentAlpha);
-        SetTransparency(massOption, opaqueAlpha);
-    }
-
-     public void OnMonClicked()
-    {
-        SetTransparency(monOption, opaqueAlpha);
-        SetTransparency(tueOption, transparentAlpha);
-        SetTransparency(wedOption, transparentAlpha);
-        SetTransparency(thuOption, transparentAlpha);
-        SetTransparency(friOption, transparentAlpha);
-        SetTransparency(satOption, transparentAlpha);
-        SetTransparency(sunOption, transparentAlpha);
-        monTable.SetActive(true);
-        tueTable.SetActive(false);
-        wedTable.SetActive(false);
-        thuTable.SetActive(false);
-        friTable.SetActive(false);
-        satTable.SetActive(false);
-        sunTable.SetActive(false);
-        
-    }
-    public void OnTueClicked()
-    {
-        SetTransparency(tueOption, opaqueAlpha);
-        SetTransparency(monOption, transparentAlpha);
-        SetTransparency(wedOption, transparentAlpha);
-        SetTransparency(thuOption, transparentAlpha);
-        SetTransparency(friOption, transparentAlpha);
-        SetTransparency(satOption, transparentAlpha);
-        SetTransparency(sunOption, transparentAlpha);
-        monTable.SetActive(false);
-        tueTable.SetActive(true);
-        wedTable.SetActive(false);
-        thuTable.SetActive(false);
-        friTable.SetActive(false);
-        satTable.SetActive(false);
-        sunTable.SetActive(false);
-    }
-    public void OnWedClicked()
-    {
-        SetTransparency(wedOption, opaqueAlpha);
-        SetTransparency(tueOption, transparentAlpha);
-        SetTransparency(monOption, transparentAlpha);
-        SetTransparency(thuOption, transparentAlpha);
-        SetTransparency(friOption, transparentAlpha);
-        SetTransparency(satOption, transparentAlpha);
-        SetTransparency(sunOption, transparentAlpha);
-        monTable.SetActive(false);
-        tueTable.SetActive(false);
-        wedTable.SetActive(true);
-        thuTable.SetActive(false);
-        friTable.SetActive(false);
-        satTable.SetActive(false);
-        sunTable.SetActive(false);
-    }
-    public void OnThuClicked()
-    {
-        SetTransparency(thuOption, opaqueAlpha);
-        SetTransparency(tueOption, transparentAlpha);
-        SetTransparency(wedOption, transparentAlpha);
-        SetTransparency(monOption, transparentAlpha);
-        SetTransparency(friOption, transparentAlpha);
-        SetTransparency(satOption, transparentAlpha);
-        SetTransparency(sunOption, transparentAlpha);
-        monTable.SetActive(false);
-        tueTable.SetActive(false);
-        wedTable.SetActive(false);
-        thuTable.SetActive(true);
-        friTable.SetActive(false);
-        satTable.SetActive(false);
-        sunTable.SetActive(false);
-    }
-    public void OnFriClicked()
-    {
-        SetTransparency(friOption, opaqueAlpha);
-        SetTransparency(tueOption, transparentAlpha);
-        SetTransparency(wedOption, transparentAlpha);
-        SetTransparency(thuOption, transparentAlpha);
-        SetTransparency(monOption, transparentAlpha);
-        SetTransparency(satOption, transparentAlpha);
-        SetTransparency(sunOption, transparentAlpha);
-        monTable.SetActive(false);
-        tueTable.SetActive(false);
-        wedTable.SetActive(false);
-        thuTable.SetActive(false);
-        friTable.SetActive(true);
-        satTable.SetActive(false);
-        sunTable.SetActive(false);
-    }
-    public void OnSatClicked()
-    {
-        SetTransparency(satOption, opaqueAlpha);
-        SetTransparency(tueOption, transparentAlpha);
-        SetTransparency(wedOption, transparentAlpha);
-        SetTransparency(thuOption, transparentAlpha);
-        SetTransparency(friOption, transparentAlpha);
-        SetTransparency(monOption, transparentAlpha);
-        SetTransparency(sunOption, transparentAlpha);
-        monTable.SetActive(false);
-        tueTable.SetActive(false);
-        wedTable.SetActive(false);
-        thuTable.SetActive(false);
-        friTable.SetActive(false);
-        satTable.SetActive(true);
-        sunTable.SetActive(false);
-    }
-    public void OnSunClicked()
-    {
-        SetTransparency(sunOption, opaqueAlpha);
-        SetTransparency(tueOption, transparentAlpha);
-        SetTransparency(wedOption, transparentAlpha);
-        SetTransparency(thuOption, transparentAlpha);
-        SetTransparency(friOption, transparentAlpha);
-        SetTransparency(monOption, transparentAlpha);
-        SetTransparency(satOption, transparentAlpha);
-        monTable.SetActive(false);
-        tueTable.SetActive(false);
-        wedTable.SetActive(false);
-        thuTable.SetActive(false);
-        friTable.SetActive(false);
-        satTable.SetActive(false);
-        sunTable.SetActive(true);
-    }
-
-    // Helper method to set transparency
     private void SetTransparency(Image image, float alpha)
     {
         if (image != null)
@@ -203,6 +68,36 @@ public class SceneLoader : MonoBehaviour
             Color color = image.color;
             color.a = alpha;
             image.color = color;
+        }
+    }
+
+    private void DisableFutureDays()
+    {
+        string today = DateTime.Now.DayOfWeek.ToString().Substring(0, 3);
+        bool foundToday = false;
+
+        foreach (var day in optionsMapping)
+        {
+            if (day.Key.Equals(today, StringComparison.OrdinalIgnoreCase))
+            {
+                foundToday = true;
+                SetTransparency(day.Value.option, opaqueAlpha);
+                continue;
+            }
+
+            if (foundToday)
+            {
+                // Future days after today
+                SetTransparency(day.Value.option, transparentAlpha);
+                // day.Value.option.SetActive(false);
+                day.Value.table.SetActive(false);
+                day.Value.total.SetActive(false);
+            }
+            else
+            {
+                // Past days before today
+                SetTransparency(day.Value.option, transparentAlpha); // Past days are transparent but not disabled
+            }
         }
     }
 }
