@@ -37,6 +37,25 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadNextBuild() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+     public void SetToPortrait()
+    {
+        Screen.orientation = ScreenOrientation.Portrait;
+    }
+
+    // Call this method when the "Set to Landscape" button is clicked
+    public void SetToLandscape()
+    {
+        Screen.orientation = ScreenOrientation.LandscapeLeft; // Or LandscapeRight, depending on your preference
+    }
+    private void OnApplicationQuit()
+    {
+        Screen.orientation = ScreenOrientation.AutoRotation;
+        // Additionally, you might want to set which orientations are allowed if you've changed these at runtime.
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+        Screen.autorotateToPortrait = true;
+        Screen.autorotateToPortraitUpsideDown = true;
+    }
     public void OnGenderOptionClicked(Image selectedOption)
     {
         SetTransparency(maleOption, selectedOption == maleOption ? opaqueAlpha : transparentAlpha);

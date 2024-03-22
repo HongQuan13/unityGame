@@ -941,8 +941,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
-  m_InputType: 0
+  m_ContentType: 7
+  m_InputType: 2
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -1246,6 +1246,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce90ce37c6d46124aba1388fd20c6ff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maleOption: {fileID: 0}
+  femaleOption: {fileID: 0}
+  burnFatOption: {fileID: 0}
+  fitterOption: {fileID: 0}
+  massOption: {fileID: 0}
+  monOption: {fileID: 0}
+  tueOption: {fileID: 0}
+  wedOption: {fileID: 0}
+  thuOption: {fileID: 0}
+  friOption: {fileID: 0}
+  satOption: {fileID: 0}
+  sunOption: {fileID: 0}
+  monTable: {fileID: 0}
+  tueTable: {fileID: 0}
+  wedTable: {fileID: 0}
+  thuTable: {fileID: 0}
+  friTable: {fileID: 0}
+  satTable: {fileID: 0}
+  sunTable: {fileID: 0}
+  monTotal: {fileID: 0}
+  tueTotal: {fileID: 0}
+  wedTotal: {fileID: 0}
+  thuTotal: {fileID: 0}
+  friTotal: {fileID: 0}
+  satTotal: {fileID: 0}
+  sunTotal: {fileID: 0}
 --- !u!4 &727752164
 Transform:
   m_ObjectHideFlags: 0
