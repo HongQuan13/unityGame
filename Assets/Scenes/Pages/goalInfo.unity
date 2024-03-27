@@ -337,8 +337,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281671938
-  m_fontColor: {r: 0.006852977, g: 0.12814106, b: 0.20754719, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -923,6 +923,27 @@ MonoBehaviour:
   burnFatOption: {fileID: 1916088876}
   fitterOption: {fileID: 1389639532}
   massOption: {fileID: 1311165}
+  monOption: {fileID: 0}
+  tueOption: {fileID: 0}
+  wedOption: {fileID: 0}
+  thuOption: {fileID: 0}
+  friOption: {fileID: 0}
+  satOption: {fileID: 0}
+  sunOption: {fileID: 0}
+  monTable: {fileID: 0}
+  tueTable: {fileID: 0}
+  wedTable: {fileID: 0}
+  thuTable: {fileID: 0}
+  friTable: {fileID: 0}
+  satTable: {fileID: 0}
+  sunTable: {fileID: 0}
+  monTotal: {fileID: 0}
+  tueTotal: {fileID: 0}
+  wedTotal: {fileID: 0}
+  thuTotal: {fileID: 0}
+  friTotal: {fileID: 0}
+  satTotal: {fileID: 0}
+  sunTotal: {fileID: 0}
 --- !u!4 &522974401
 Transform:
   m_ObjectHideFlags: 0
