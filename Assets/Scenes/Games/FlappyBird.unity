@@ -1860,6 +1860,27 @@ MonoBehaviour:
   burnFatOption: {fileID: 0}
   fitterOption: {fileID: 0}
   massOption: {fileID: 0}
+  monOption: {fileID: 0}
+  tueOption: {fileID: 0}
+  wedOption: {fileID: 0}
+  thuOption: {fileID: 0}
+  friOption: {fileID: 0}
+  satOption: {fileID: 0}
+  sunOption: {fileID: 0}
+  monTable: {fileID: 0}
+  tueTable: {fileID: 0}
+  wedTable: {fileID: 0}
+  thuTable: {fileID: 0}
+  friTable: {fileID: 0}
+  satTable: {fileID: 0}
+  sunTable: {fileID: 0}
+  monTotal: {fileID: 0}
+  tueTotal: {fileID: 0}
+  wedTotal: {fileID: 0}
+  thuTotal: {fileID: 0}
+  friTotal: {fileID: 0}
+  satTotal: {fileID: 0}
+  sunTotal: {fileID: 0}
 --- !u!4 &1095871800
 Transform:
   m_ObjectHideFlags: 0
@@ -2864,6 +2885,18 @@ MonoBehaviour:
           m_StringArgument: mainPage
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1095871799}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: SetToPortrait
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &1911477841
 MonoBehaviour:
   m_ObjectHideFlags: 0
